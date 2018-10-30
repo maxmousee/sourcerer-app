@@ -298,7 +298,7 @@ class CommitHasherTest : Spek({
                 "template <typename s, Input... inputs>",
                 "struct Play<s, x, xs...> {",
                 "    using type = cons<s, play<step_t<x, s>, xs...>>;", "};",
-                "        template <typename x>")
+                "        template<typename x>")
 
         val author = Author(userName, userEmail)
 

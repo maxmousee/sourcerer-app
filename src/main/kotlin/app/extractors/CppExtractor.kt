@@ -14,6 +14,7 @@ class CppExtractor : ExtractorInterface {
         val importRegex = Regex("""^([^\n]*#include)\s[^\n]*""")
         val commentRegex = Regex("""^([^\n]*//)[^\n]*""")
         val extractImportRegex = Regex("""#include\s+["<](\w+[/\w+]*(\.\w+)?)[">]""")
+        val templateRegex = Regex("""template\s*<""")
     }
 
     override fun extractImports(fileContent: List<String>): List<String> {
@@ -66,6 +67,6 @@ class CppExtractor : ExtractorInterface {
     }
 
     private fun isTemplate(line: String): Boolean {
-        return line.contains("template <")
+        return line.contains(templateRegex)
     }
 }
